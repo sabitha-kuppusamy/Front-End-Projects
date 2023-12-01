@@ -2,7 +2,7 @@ import firebase from "firebase";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAfcBAW8lOedU8GKFYH7w9UepDfcX0AfVc",
+  apiKey: "",
   authDomain: "insta-reels-f9c4e.firebaseapp.com",
   projectId: "insta-reels-f9c4e",
   storageBucket: "insta-reels-f9c4e.appspot.com",
