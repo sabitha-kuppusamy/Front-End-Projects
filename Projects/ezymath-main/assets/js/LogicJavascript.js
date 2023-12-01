@@ -20973,7 +20973,7 @@ function convertAnyBaseToAnyBase() {
             result.innerHTML = "Binary numbers can only have 0's and 1's";
     }
     else if (fracDectoBinHexOct(calculatefrac(input, from), to) == "NaN.0") {
-        result.innerHTML = `Invalid Input please use only ${fromBase} Base number`;
+        result.innerHTML = DOMPurify.sanitize(`Invalid Input please use only ${fromBase} Base number`);
     }
 
 
@@ -28191,7 +28191,7 @@ function findnthrt() {
             }
             guess = (low + high) / 2;
         }
-        result.innerHTML = `The ${n}-th root  of ${x}  is  ${guess.toFixed(4)}`;
+        result.innerHTML = DOMPurify.sanitize(`The ${n}-th root  of ${x}  is  ${guess.toFixed(4)}`);
     }
 }
 

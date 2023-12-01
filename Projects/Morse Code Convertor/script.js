@@ -58,26 +58,26 @@ function startConvertor(value) {
         text.innerHTML = "Morse Code";
         btn.addEventListener("click", () => {
             let inpText = inputBox.value;
-            result.innerHTML = `
+            result.innerHTML = DOMPurify.sanitize(`
       <div class="word">
         <h3>${inpText}</h3>
       </div>
       <p class="word-mean">
         ${textToMorse(inpText)}
-      </p>`;
+      </p>`);
         });
     } else {
         preText.innerHTML = "morse code";
         text.innerHTML = "Text";
         btn.addEventListener("click", () => {
             let inpText = document.getElementById("inp-word").value;
-            result.innerHTML = `
+            result.innerHTML = DOMPurify.sanitize(`
       <div class="word">
         <h3>${inpText}</h3>
       </div>
       <p class="word-mean">
         ${morseToText(inpText)}
-      </p>`;
+      </p>`);
         });
     }
 

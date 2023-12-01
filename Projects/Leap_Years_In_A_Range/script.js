@@ -14,22 +14,22 @@ function leapYearCalc() {
         (startYear < 1582 || startYear > 2999) &&
         (endYear < 1582 || endYear > 2999)
     ) {
-        result.innerHTML = `<b style="color: red;">The start year and end year should be greater than 1581 and less than 3000.</b>`;
+        result.innerHTML = DOMPurify.sanitize(`<b style="color: red;">The start year and end year should be greater than 1581 and less than 3000.</b>`);
     }
 
     // If start year is greater than end year
     else if (startYear > endYear) {
-        result.innerHTML = `<b style="color: red;">End year should be greater than the start year.</b>`;
+        result.innerHTML = DOMPurify.sanitize(`<b style="color: red;">End year should be greater than the start year.</b>`);
     }
 
     // If start year is invalid
     else if (startYear < 1582 || startYear > 2999) {
-        result.innerHTML = `<b style="color: red;">The start year should be greater than 1581 and less than 3000.</b>`;
+        result.innerHTML = DOMPurify.sanitize(`<b style="color: red;">The start year should be greater than 1581 and less than 3000.</b>`);
     }
 
     // If end year is invalid
     else if (endYear < 1582 || endYear > 2999) {
-        result.innerHTML = `<b style="color: red;">The end year should be greater than 1581 and less than 3000.</b>`;
+        result.innerHTML = DOMPurify.sanitize(`<b style="color: red;">The end year should be greater than 1581 and less than 3000.</b>`);
     }
 
     // If both start and end years are valid
@@ -47,11 +47,11 @@ function leapYearCalc() {
         // Display leap years in result div
         // toString() returns a string with comma seperated values
         // Use combo of split() and join() to replace ',' with ', '
-        result.innerHTML = `<b style="color: #f5c431;">There are ${leapYears.length
+        result.innerHTML = DOMPurify.sanitize(`<b style="color: #f5c431;">There are ${leapYears.length
             } leap years between ${startYear} & ${endYear}.</b><span>${leapYears
                 .toString()
                 .split(",")
-                .join(", ")}</span>`;
+                .join(", ")}</span>`);
     }
 }
 
