@@ -110,8 +110,8 @@ function renderBlocks(){
         // clear old text (need when saving)
         $( this ).empty();
         // add text to timeblocks
-        $( this ).append($("<h4 class='title'>"+blocks["block"+timeblockNum].title+"</h4>"));
-        $( this ).append($("<p class='description'>"+blocks["block"+timeblockNum].description+"</p>"));
+        $( this ).append(DOMPurify.sanitize($("<h4 class='title'>"+blocks["block"+timeblockNum].title+"</h4>")));
+        $( this ).append(DOMPurify.sanitize($("<p class='description'>"+blocks["block"+timeblockNum].description+"</p>")));
         if (blocks["block"+timeblockNum].title!==""||blocks["block"+timeblockNum].description!==""){
             $( this ).removeClass("empty");
         }
