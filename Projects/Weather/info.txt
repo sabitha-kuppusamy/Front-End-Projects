@@ -10,7 +10,7 @@
 <th style="width: 22%;"> Wind_speed </th>
 
 //different property defined 
-        cloud_pct.innerHTML = DOMPurify.sanitze(response.cloud_pct);
+        DOMPurify.sanitze(response.cloud_pct);
         temp.innerHTML =  DOMPurify.sanitze(response.temp);
         temp2.innerHTML =  DOMPurify.sanitze(response.temp);
         feels_like.innerHTML =  DOMPurify.sanitze(response.feels_like);
