@@ -68,7 +68,7 @@ for (item of buttons) {
           0,
           result.innerHTML.length - 1
         );
-        input.innerHTML = inputValue;
+        input.innerHTML = DOMPurify.sanitize(inputValue);
         break;
 
       case "1/x":
@@ -124,7 +124,7 @@ for (item of buttons) {
         inputValue = "";
         input.innerHTML = "";
         result.innerHTML = "";
-        input.innerHTML = squareNumber + " ^ 2";
+        input.innerHTML = DOMPurify.sanitize(squareNumber + " ^ 2");
         break;
 
       case "x³":
@@ -132,7 +132,7 @@ for (item of buttons) {
         inputValue = "";
         input.innerHTML = "";
         result.innerHTML = "";
-        input.innerHTML = cubeNumber + " ^ 3";
+        input.innerHTML =DOMPurify.sanitize( cubeNumber + " ^ 3");
         break;
 
       case "²√":
@@ -176,23 +176,23 @@ function ans() {
   if (baseNumber) {
     let exponent = eval(inputValue);
     let resultValue = Math.pow(baseNumber, exponent);
-    result.innerHTML = resultValue;
+    result.innerHTML = DOMPurify.sanitize(resultValue);
     inputValue = resultValue;
     baseNumber = null;
   } else if (squareNumber) {
     let power = squareNumber ** "2";
-    result.innerHTML = power;
+    result.innerHTML =DOMPurify.sanitize (power);
     inputValue = power;
     squareNumber = null;
   } else if (rootIndex) {
     let radicand = parseFloat(inputValue);
     let resultValue = Math.pow(radicand, 1 / rootIndex);
-    result.innerHTML = resultValue;
+    result.innerHTML = DOMPurify.sanitize(resultValue);
     inputValue = resultValue;
     rootIndex = null;
   } else if (cubeNumber) {
     let power = cubeNumber ** "3";
-    result.innerHTML = power;
+    result.innerHTML = DOMPurify.sanitize(power);
     inputValue = power;
     cubeNumber = null;
   } else {
@@ -200,11 +200,11 @@ function ans() {
       if (inputValue.includes("%")) {
         let values = inputValue.split("%");
         let percentage = (parseFloat(values[0]) / parseFloat(values[1])) * 100;
-        result.innerHTML = percentage;
+        result.innerHTML = DOMPurify.sanitize(percentage);
         inputValue = percentage;
       } else {
         inputValue = eval(inputValue) + "";
-        result.innerHTML = inputValue;
+        result.innerHTML = DOMPurify.sanitize(inputValue);
       }
       baseNumber = null;
       squareNumber = null;
@@ -216,23 +216,23 @@ function equal() {
   if (baseNumber) {
     let exponent = eval(inputValue);
     let resultValue = Math.pow(baseNumber, exponent);
-    result.innerHTML = resultValue;
+    result.innerHTML = DOMPurify.sanitize(resultValue);
     inputValue = resultValue;
     baseNumber = null;
   } else if (squareNumber) {
     let power = squareNumber ** "2";
-    result.innerHTML = power;
+    result.innerHTML = DOMPurify.sanitize(power);
     inputValue = power;
     squareNumber = null;
   } else if (rootIndex) {
     let radicand = parseFloat(inputValue);
     let resultValue = Math.pow(radicand, 1 / rootIndex);
-    result.innerHTML = resultValue;
+    result.innerHTML = DOMPurify.sanitize(resultValue);
     inputValue = resultValue;
     rootIndex = null;
   } else if (cubeNumber) {
     let power = cubeNumber ** "3";
-    result.innerHTML = power;
+    result.innerHTML = DOMPurify.sanitize(power);
     inputValue = power;
     cubeNumber = null;
   } else {
@@ -240,11 +240,11 @@ function equal() {
       if (inputValue.includes("%")) {
         let values = inputValue.split("%");
         let percentage = (parseFloat(values[0]) / parseFloat(values[1])) * 100;
-        result.innerHTML = percentage;
+        result.innerHTML = DOMPurify.sanitize(percentage);
         inputValue = percentage;
       } else {
         inputValue = eval(inputValue) + "";
-        result.innerHTML = inputValue;
+        result.innerHTML = DOMPurify.sanitize(inputValue);
       }
       baseNumber = null;
       squareNumber = null;
@@ -266,8 +266,8 @@ function sin() {
 function cos() {
   const degree = parseFloat(input.innerHTML);
   const radians = degree * (Math.PI / 180);
-  result.innerHTML = Math.cos(radians);
-  input.innerHTML = "cos(" + inputValue + "°" + ")";
+  result.innerHTML = DOMPurify.sanitize(Math.cos(radians));
+  input.innerHTML = DOMPurify.sanitize("cos(" + inputValue + "°" + ")");
 }
 
 function tan() {
@@ -361,7 +361,7 @@ function squareRoot() {
   const value = parseFloat(inputValue);
   if (!isNaN(value)) {
     const sqrtValue = Math.sqrt(value);
-    result.innerHTML = sqrtValue;
+    result.innerHTML = DOMPurify.sanitize(sqrtValue);
     input.innerHTML = "√" + inputValue;
   } else {
     input.innerHTML = "Invalid input/Syntax : ";
@@ -374,7 +374,7 @@ function nthRoot() {
   let rootIndex = parseFloat(values[0]);
   let radicand = parseFloat(values[1]);
   let resultValue = Math.pow(radicand, 1 / rootIndex);
-  result.innerHTML = resultValue;
+  result.innerHTML = DOMPurify.sanitize(resultValue);
   inputValue = resultValue;
 }
 
@@ -432,7 +432,7 @@ function powerOfTen() {
     const powerValue = Math.pow(10, x);
 
     if (!isNaN(powerValue) && isFinite(powerValue)) {
-      result.innerHTML = powerValue;
+      result.innerHTML = DOMPurify.sanitize(powerValue);
       inputValue = powerValue;
       input.innerHTML = "10^" + x;
     } else {

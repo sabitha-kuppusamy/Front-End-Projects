@@ -18,7 +18,7 @@ for (let project of filteredProjects) {
     const project_info = document.createElement("div");
     project_info.className = "project-info";
     const heading = document.createElement("h2");
-    heading.innerHTML = project.title;
+    heading.innerHTML =  DOMPurify.sanitize(project.title);
     project_info.appendChild(heading);
     
     const row = document.createElement("div");
@@ -28,7 +28,7 @@ for (let project of filteredProjects) {
 
     for (let t of project.tags) {
         const span = document.createElement("span");
-        span.innerHTML = t;
+        span.innerHTML =  DOMPurify.sanitize(t);
         tech.appendChild(span);
     }
 
@@ -54,7 +54,7 @@ for (let project of filteredProjects) {
 
     const desc = document.createElement('p');
     desc.className="description";
-    desc.innerHTML=project.description;
+    desc.innerHTML= DOMPurify.sanitize(project.description);
     project_info.appendChild(desc);
 
     project_div.appendChild(project_info);

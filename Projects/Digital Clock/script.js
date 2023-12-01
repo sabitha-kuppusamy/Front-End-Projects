@@ -18,10 +18,10 @@ function clock(){
     m = (m<10) ? '0'+m : m;
     s = (s<10) ? '0'+s : s;
 
-    seconds.innerHTML = s;
-    minutes.innerHTML = m;
-    hours.innerHTML = h;
-    ampm.innerHTML = am;
+    seconds.innerHTML = DOMPurify.sanitize(s);
+    minutes.innerHTML = DOMPurify.sanitize(m);
+    hours.innerHTML = DOMPurify.sanitize(h);
+    ampm.innerHTML = DOMPurify.sanitize(am);
 
     
 };
