@@ -10,16 +10,16 @@
 <th style="width: 22%;"> Wind_speed </th>
 
 //different property defined 
-        DOMPurify.sanitze(response.cloud_pct);
-        temp.innerHTML =  DOMPurify.sanitze(response.temp);
-        temp2.innerHTML =  DOMPurify.sanitze(response.temp);
-        feels_like.innerHTML =  DOMPurify.sanitze(response.feels_like);
-        humidity.innerHTML =  DOMPurify.sanitze(response.humidity);
-        humidity2.innerHTML =  DOMPurify.sanitze(response.humidity)
-        min_temp.innerHTML =  DOMPurify.sanitze(response.min_temp)
-        max_temp.innerHTML =  DOMPurify.sanitze(response.max_temp)
-        wind_speed.innerHTML = DOMPurify.sanitze( response.wind_speed)
-        wind_speed2.innerHTML =  DOMPurify.sanitze(response.wind_speed)
-       wind_degrees.innerHTML =  DOMPurify.sanitze(response.wind_degrees)
-        sunrise.innerHTML =  DOMPurify.sanitze(response.sunrise)
-        sunset.innerHTML = DOMPurify.sanitze( response.sunset)
+        DOMPurify.sanitize(response.cloud_pct);
+        temp.innerHTML =  DOMPurify.sanitize(response.temp);
+        temp2.innerHTML =  DOMPurify.sanitize(response.temp);
+        feels_like.innerHTML =  DOMPurify.sanitize(response.feels_like);
+        humidity.innerHTML =  DOMPurify.sanitize(response.humidity);
+        humidity2.innerHTML =  DOMPurify.sanitize(response.humidity)
+        min_temp.innerHTML =  DOMPurify.sanitize(response.min_temp)
+        max_temp.innerHTML =  DOMPurify.sanitize(response.max_temp)
+        wind_speed.innerHTML = DOMPurify.sanitize( response.wind_speed)
+        wind_speed2.innerHTML =  DOMPurify.sanitize(response.wind_speed)
+       wind_degrees.innerHTML =  DOMPurify.sanitize(response.wind_degrees)
+        sunrise.innerHTML =  DOMPurify.sanitize(response.sunrise)
+        sunset.innerHTML = DOMPurify.sanitize( response.sunset)
