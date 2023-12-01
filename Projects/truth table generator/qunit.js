@@ -533,7 +533,7 @@
                 tests.parentNode.insertBefore( result, tests.nextSibling );
             }
     
-            result.innerHTML = html;
+            result.innerHTML = DOMPurify.sanitize(html);
         }
     
         QUnit.done( config.stats.bad, config.stats.all );

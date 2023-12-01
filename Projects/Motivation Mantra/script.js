@@ -7,8 +7,8 @@ function loadQuote(){
     fetch("https://api.quotable.io/random")
         .then(res => res.json())
         .then(result =>{
-            para.innerHTML = '"'+result.content+'"';
-            auth.innerHTML = '- '+result.author;
+            para.innerHTML = DOMPurify.sanitize('"'+result.content+'"');
+            auth.innerHTML =DOMPurify.sanitize ('- '+result.author)
             document.getElementById("next").innerText = " Next Quote " ;
         });
 }

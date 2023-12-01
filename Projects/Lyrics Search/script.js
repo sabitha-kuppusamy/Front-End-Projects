@@ -13,21 +13,20 @@ async function searchSongs(term) {
 }
 
 function showData(data) {
-  result.innerHTML = `
-    <ul class="songs">
-      ${data.data
-        .map(
-          song => `<li>
-      <span><strong>${song.artist.name}</strong> - ${song.title}</span>
-      <button class="btn" data-artist="${song.artist.name}" data-songtitle="${song.title}"></button>
-    </li>`
-        )
+  result.innerHTML = DOMPurify.sanitize(`
+  <ul class="songs">
+    ${data.data
+      .map(
+        song => `<li>
+    <span><strong>${song.artist.name}</strong> - ${song.title}</span>
+    <button class="btn" data-artist="${song.artist.name}" data-songtitle="${song.title}"></button>
+  </li>`)
         .join('')}
     </ul>
-  `;
+  `);
 
   if (data.prev || data.next) {
-    more.innerHTML = `
+    more.innerHTML = DOMPurify.sanitize(`
       ${
         data.prev
           ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Prev</button>`
@@ -38,7 +37,7 @@ function showData(data) {
           ? `<button class="btn" onclick="getMoreSongs('${data.next}')">Next</button>`
           : ''
       }
-    `;
+    `);
   } else {
     more.innerHTML = '';
   }
@@ -56,14 +55,14 @@ async function getLyrics(artist, songTitle) {
   const data = await res.json();
 
    if (data.error) {
-        result.innerHTML = data.error;
+        result.innerHTML = DOMPurify.sanitize(data.error);
    } else {
         const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
 
-        result.innerHTML = `
+        result.innerHTML =DOMPurify.sanitize( `
             <h2><strong>${artist}</strong> - ${songTitle}</h2>
             <span>${lyrics}</span>
-        `;
+        `);
   }
 
   more.innerHTML = '';

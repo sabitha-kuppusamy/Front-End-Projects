@@ -76,7 +76,7 @@ btn1.addEventListener('click',(event)=>{
     
      document.getElementById('para').innerHTML='';
      //console.log("before: ",document.getElementById('para').innerHTML);
-     para.innerHTML = newStr;
+     para.innerHTML = DOMPurify.sanitize(newStr);
      //console.log("after: ",document.getElementById('para').innerHTML);
 
 });

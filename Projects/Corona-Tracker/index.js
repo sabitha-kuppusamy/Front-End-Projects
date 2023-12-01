@@ -26,13 +26,13 @@ xhr.onreadystatechange=()=>
                temp.style.width="25%";
             temp.setAttribute('id','add');
             var z=document.createElement("p");
-              z.innerHTML=`Date ⇨ ${m[i].Date}`; 
+              z.innerHTML=DOMPurify.sanitize(`Date ⇨ ${m[i].Date}`); 
               z.style.padding="6px";
             var b=document.createElement("p");
-            b.innerHTML=`Confirmed Cases: ${m[i].Confirmed}`; 
+            b.innerHTML=DOMPurify.sanitize(`Confirmed Cases: ${m[i].Confirmed}`); 
             b.style.padding="6px";
             var b1=document.createElement("p");
-            b1.innerHTML=`Active Cases: ${m[i].Active}`; 
+            b1.innerHTML=DOMPurify.sanitize(`Active Cases: ${m[i].Active}`); 
              b1.style.padding="6px";
             var b2=document.createElement("p");
             b2.innerHTML=`Deaths: ${m[i].Deaths}`;  
