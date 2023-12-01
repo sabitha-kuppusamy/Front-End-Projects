@@ -7,8 +7,8 @@ const generateMemeBtn = document.querySelector(
   
   const updateDetails = (url, title, author) => {
     memeImage.setAttribute("src", url);
-    memeTitle.innerHTML = title;
-    memeAuthor.innerHTML = `Meme by: ${author}`;
+    memeTitle.innerHTML = DOMPurify.sanitize(title);
+    memeAuthor.innerHTML = `Meme by: ${DOMPurify.sanitize(author)}`;
   };
   
   const generateMeme = () => {
